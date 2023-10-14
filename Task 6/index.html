@@ -12,17 +12,15 @@
 				<label><input type="radio" name="good" value="2000" id="good2">Чехол</label>
 				<label><input type="radio" name="good" value="135000" id="good3">iPhone 15 256 GB</label>
 			</div><br>
-			<label id="options" class="invisible">Товар: 
-				<select>
-					<option value="0" id="option1">Силиконовый</option>
-					<option value="4000" id="option2">Кожанный</option>
+			<label id="options" class="invisible">Выберите опцию: 
+				<select id="option">
+					<option value="0">Силиконовый</option>
+					<option value="4000">Кожанный</option>
 				</select>
 			</label><br>
-			<label class="label">Количество: <input type="number" id="number"></label><br>
-			<label id="check" class="invisible"><input type="checkbox">Дополнительная гарантия на год</label><br>
-			<span class="label">Сумма заказа: </span>
-			<span  class="label" id="sum"></span><br>
-			<div class="label"><input type="submit" value="Офоримить заказ"></div>
+			<label class="label">Количество: <input type="number" id="number" value="1"></label><br>
+			<label id="check" class="invisible"><input type="checkbox" id="check_">Дополнительная гарантия на год</label><br>
+			<span class="label">Сумма заказа: <span  class="inline" id="sum"></span></span>
 		</form>
 		<script src="form.js"></script>
 	</body>

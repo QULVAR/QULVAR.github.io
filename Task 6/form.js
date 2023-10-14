@@ -1,47 +1,72 @@
 /*jslint browser: true */
 window.onload = function () {
 	
-	function price (good, option) {
-		let count = document.getElementById("number").value;
-		let price = good.getAttribute("value");
+	function price(good, option) {
+		let count = parseInt(document.getElementById("number").value);
+		let price = parseInt(good.getAttribute("value"));
+		let optionValue = parseInt(option.value);
 		let price_field = document.getElementById("sum");
-		let pprice = option.getAttribute("value");
-		if (/^\d+$/.test(count)) {
-			price_field.innerHTML = price * count + Number(pprice) + "₽";
-		} else {
-			price_field.innerHTML = "";
+		let out = (price + optionValue) * count;
+		let check_ = document.getElementById("check_");
+		if (check_.checked) {
+			out += 1000;
 		}
-	}
+		if (!isNaN(count) && !isNaN(price)) {
+		  price_field.innerHTML = out + "₽";
+		} else {
+		  price_field.innerHTML = "";
+		}
+	  }
+	  
+			
 
 	let good1 = document.getElementById("good1");
 	let good2 = document.getElementById("good2");
 	let good3 = document.getElementById("good3");
 	let options = document.getElementById("options");
-	let option1 = document.getElementById("option1");
-	let option2 = document.getElementById("option2");
-	let check_box = document.getElementById("check");
+	let check = document.getElementById("check");
+	let check_ = document.getElementById("check_");
+	let option = document.getElementById("option");
+	let count = document.getElementById("number");
+	let flag = 0;
 	
 
 	good1.addEventListener("click", function () {
 		options.className = "invisible";
-		check_box.className = "invisible";
-		price(good1, option1);
+		check.className = "invisible";
+		option.value = "0";
+		check_.checked = false;
+		flag = 1;
+		price(good1, option);
 	});
 	good2.addEventListener("click", function () {
 		options.className = "visible";
-		check_box.className = "invisible";
-		price(good2, option1);
+		check.className = "invisible";
+		check_.checked = false;
+		flag = 2;
+		price(good2, option);
 	});
 	good3.addEventListener("click", function () {
 		options.className = "invisible";
-		check_box.className = "visible";
-		price(good3, option1);
+		check.className = "visible";
+		option.value = "0";
+		check_.checked = false;
+		flag = 3;
+		price(good3, option);
 	});
-	option1.addEventListener("change", function () {
-		price(good2, option1);
+	options.addEventListener("change", function () {
+		price(good2, option);
 	});
-	option2.addEventListener("change", function () {
-		price(good2, option2);
+	check_.addEventListener("click", function () {
+		price(good3, option);
 	});
-
+	count.addEventListener("input", function () {
+		if (flag == 1) {
+			price(good1, option);
+		} else if (flag == 2) {
+			price(good2, option);
+		} else if (flag == 3) {
+			price(good3, option);
+		}
+	});
 };

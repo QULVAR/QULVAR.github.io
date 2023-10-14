@@ -11,6 +11,10 @@
     margin-top: 5px;
 }
 
+.inline {
+    display: inline;
+}
+
 #options {
     display: block;
     margin-top: 5px;
