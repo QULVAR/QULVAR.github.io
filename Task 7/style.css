@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#galery-div{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 20%;
+
+}
+#galery{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.slick-slide img{
+    margin: auto;
+}
+.slick-prev:before,
+.slick-next:before{
+    color: black;
+    font-size: 28px;
+}
+.slick-dots{
+    bottom: -50px;
+}
+.slick-dots li{
+    margin: 0 5px;
+}
+.slick-dots li button:before{
+    font-size: 10px;
+}
